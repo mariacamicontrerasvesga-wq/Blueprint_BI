@@ -1,0 +1,21 @@
+CREATE TABLE Customer_Months AS
+SELECT
+  idCustomer,
+
+  MAX(CASE WHEN strftime('%m', sale_date) = '01' THEN 1 ELSE 0 END) AS enero,
+  MAX(CASE WHEN strftime('%m', sale_date) = '02' THEN 1 ELSE 0 END) AS febrero,
+  MAX(CASE WHEN strftime('%m', sale_date) = '03' THEN 1 ELSE 0 END) AS marzo,
+  MAX(CASE WHEN strftime('%m', sale_date) = '04' THEN 1 ELSE 0 END) AS abril,
+  MAX(CASE WHEN strftime('%m', sale_date) = '05' THEN 1 ELSE 0 END) AS mayo,
+  MAX(CASE WHEN strftime('%m', sale_date) = '06' THEN 1 ELSE 0 END) AS junio,
+  MAX(CASE WHEN strftime('%m', sale_date) = '07' THEN 1 ELSE 0 END) AS julio,
+  MAX(CASE WHEN strftime('%m', sale_date) = '08' THEN 1 ELSE 0 END) AS agosto,
+  MAX(CASE WHEN strftime('%m', sale_date) = '09' THEN 1 ELSE 0 END) AS septiembre,
+  MAX(CASE WHEN strftime('%m', sale_date) = '10' THEN 1 ELSE 0 END) AS octubre,
+  MAX(CASE WHEN strftime('%m', sale_date) = '11' THEN 1 ELSE 0 END) AS noviembre,
+  MAX(CASE WHEN strftime('%m', sale_date) = '12' THEN 1 ELSE 0 END) AS diciembre
+
+FROM Sales2022
+GROUP BY idCustomer;
+
+ 
